@@ -6,7 +6,8 @@ CREATE TABLE LOGIN.users (
     password VARCHAR(50) NOT NULL
 );
 
-insert into LOGIN.users (username, password) values ('johndoe', 'jD@12345'),
+insert into LOGIN.users (username, password) values 
+('johndoe', 'jD@12345'),
 ('emily_smith', 'E!m1ly2024'),
 ('michael99', 'm1k3l3_2024'),
 ('sarah.jones', 'S@rah9876'),

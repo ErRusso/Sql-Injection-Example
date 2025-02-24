@@ -1,13 +1,17 @@
 services:
-  php-apache:
-    build: .
-    container_name: apache
-    ports:
-      - "8080:80"
-    volumes:
-      - ./src:/var/www/html
+  apache:
     depends_on:
       - mysql
+    ports:
+      - "8080:80"
+    image: php:8.2-apache
+    volumes:
+      - ./src:/var/www/html
+    restart: always
+    command: 
+      "bash -c 'docker-php-ext-install mysqli pdo pdo_mysql && apache2-foreground'"
+    environment:
+      MYSQL_HOST: mysql
 
   mysql:
     image: mysql
